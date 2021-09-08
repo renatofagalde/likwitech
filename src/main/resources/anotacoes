@@ -1,0 +1,76 @@
+**** MINHAS ****
+mvn jib:dockerBuild -Djib.to.image=likwi-techs:v001
+docker run --name likwi-techs -p 85:8080 likwi-techs:v001
+
+mvn jib:build -Djib.to.image=renatofagalde/likwi-techs:v001 -Djib.to.auth.user=renatofagalde -Djib.to.auth.password=${PASSWORD_LIKWI_DOCKER_HUB}
+
+fazer upload para dockerhub de tudo:
+mvn clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=003
+
+docker login -u renatofagalde
+abd6fb55-232a-4f42-95df-0be5d2508e61
+
+criando network
+docker network create likwi-techs-db
+docker network rm likwi-techs-db
+
+criando o volume para não perder os dados quando removermos o container docker:
+criado a pasta:
+/Users/renatofagalde/Documents/programacao/desenvolvimento/workspace_docker_data/likwi-techs-db
+
+dentro da pasta 👆🏻:
+docker run --name likwi-techs-postgres -p 5432:5432 --network=likwi-techs-db -v "$PWD:/var/lib/postgresql/data" -e POSTGRES_PASSWORD=password -d postgres:alpine
+
+subir container:
+docker start ***************
+
+acessando cli do postgres:
+local:
+    docker run -it --rm --network=likwi-techs-db postgres:alpine psql -h likwi-techs-postgres -U postgres -P password
+
+remoto:
+    docker run -it --rm postgres:alpine psql -h aa1haqandq4j9b2.cyl25gy5nmva.us-east-2.rds.amazonaws.com -U likwi -d postgres
+
+
+para sair:
+\q
+
+
+duvidas:
+dockerhub com senha
+indicar qual application.properties deve ser empacotado: SPRING_PROFILES_ACTIVE=dev
+
+
+
+**** AMIGOS CODE *****
+Mac
+- ./mvnw jib:dockerBuild -Djib.to.image=fullstack:v1
+- ./mvnw clean install jib:dockerBuild -Djib.to.image=fullstack:v1
+
+Windows
+- mvnw jib:dockerBuild -Djib.to.image=fullstack:v1
+- mvnw clean install jib:dockerBuild -Djib.to.image=fullstack:v1
+
+To run container
+- docker run --name fullstack -p 8080:8080 fullstack:v1
+
+To delete container with name fullstack
+- docker rm -f fullstack
+
+To view local images run
+- docker image ls
+
+To view running containers
+- docker ps
+
+
+docker login
+docker pull
+docker rm -f id
+./mvnw clean install jib:build -Djib.to.image=amigoscode/spring-react-fullstack:latest
+./mvnw clean install jib:build -Djib.to.image=amigoscode/spring-react-fullstack:latest -D jib.to.auth.username=amigoscode -Djib.to.auth.password=yourpassword
+docker pull amigoscode/spring-react-fullstack:latest
+docker run -p 8080:8080 amigoscode/spring-react-fullstack
+
+
+docker run --name db -p 5432:5432 --network=db -v "$PWD:/var/lib/postgresql/data" -e POSTGRES_PASSWORD=password -d postgres:alpine
