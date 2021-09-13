@@ -8,6 +8,7 @@ class LikwiApplicationTests {
 
 	@Test
 	void contextLoads() {
+		Assertions.fail("Oppss error on build 🔥")
 	}
 
 }
