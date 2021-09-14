@@ -1,6 +1,21 @@
 import {useEffect, useState} from 'react'
 import {deleteStudent, getAllStudents} from "./client";
-import {Avatar, Badge, Breadcrumb, Button, Empty, Layout, Menu, Popconfirm, Radio, Spin, Table, Tag} from 'antd';
+import {
+    Avatar,
+    Badge,
+    Breadcrumb,
+    Button,
+    Divider,
+    Empty,
+    Image,
+    Layout,
+    Menu,
+    Popconfirm,
+    Radio,
+    Spin,
+    Table,
+    Tag
+} from 'antd';
 
 import {
     DesktopOutlined,
@@ -105,7 +120,6 @@ function App() {
     const [collapsed, setCollapsed] = useState(false);
     const [fetching, setFetching] = useState(true);
     const [showDrawer, setShowDrawer] = useState(false);
-
 
 
     const fetchStudents = () =>
@@ -213,7 +227,15 @@ function App() {
                     {renderStudents()}
                 </div>
             </Content>
-            <Footer style={{textAlign: 'center'}}>By Likwi</Footer>
+            <Footer style={{textAlign: 'center'}}>
+                <Image
+                    width={75}
+                    src="https://likwi.com.br/assets/images/likwi-white-footer-1.png"
+                />
+                <Divider>
+                    <a href="https://www.likwi.com.br">By Likwi 😎</a>
+                </Divider>
+            </Footer>
         </Layout>
     </Layout>
 }
