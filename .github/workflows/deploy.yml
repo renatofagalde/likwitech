@@ -20,7 +20,7 @@ env:
   AWS_REGION: us-east-1
   EB_ENVIRONMENT_NAME: Likwi-env
   EB_APPLICATION_NAME: likwi
-  EB_DEPLOYMENT_PACKAGE: elasticbeanstalk/docker-compose.yml
+  EB_DEPLOYMENT_PACKAGE: ./src/elasticbeanstalk/docker-compose.yml
 
 jobs:
   deploy:
