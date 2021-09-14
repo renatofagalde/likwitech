@@ -233,7 +233,7 @@ function App() {
                     src="https://likwi.com.br/assets/images/likwi-white-footer-1.png"
                 />
                 <Divider>
-                    <a href="https://www.likwi.com.br">By Likwi 😎</a>
+                    <a href="https://www.likwi.com.br">By Likwi 😎🐶</a>
                 </Divider>
             </Footer>
         </Layout>
