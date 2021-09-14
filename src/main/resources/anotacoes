@@ -31,15 +31,13 @@ local:
 remoto:
     docker run -it --rm postgres:alpine psql -h aa1haqandq4j9b2.cyl25gy5nmva.us-east-2.rds.amazonaws.com -U likwi -d postgres
 
-
 para sair:
 \q
 
 
 duvidas:
-dockerhub com senha
 indicar qual application.properties deve ser empacotado: SPRING_PROFILES_ACTIVE=dev
-
+como será na AWS.
 
 
 **** AMIGOS CODE *****
