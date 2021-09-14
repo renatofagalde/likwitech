@@ -17,7 +17,7 @@ env:
   # DockerHub
   DOCKER_HUB_USERNAME: renatofagalde
   # AWS & Elastic Bean Stalk
-  AWS_REGION: us-east-1
+  AWS_REGION: us-east-2
   EB_ENVIRONMENT_NAME: Likwi-env
   EB_APPLICATION_NAME: likwi
   EB_DEPLOYMENT_PACKAGE: ./src/elasticbeanstalk/docker-compose.yml
