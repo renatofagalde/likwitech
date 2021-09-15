@@ -46,14 +46,14 @@ function StudentDrawerForm({showDrawer, setShowDrawer, fetchStudents}) {
 
     return <Drawer
         title="Create new student"
-        width={720}
+        width={300}
         onClose={onClose}
         visible={showDrawer}
         bodyStyle={{paddingBottom: 80}}
         footer={
             <div
                 style={{
-                    textAlign: 'right',
+                    textAlign: 'center',
                 }}
             >
                 <Button onClick={onClose} style={{marginRight: 8}}>
@@ -62,7 +62,7 @@ function StudentDrawerForm({showDrawer, setShowDrawer, fetchStudents}) {
             </div>
         }
     >
-        <Form layout="vertical"
+        <Form layout="horizontal"
               onFinishFailed={onFinishFailed}
               onFinish={onFinish}
               hideRequiredMark>
@@ -76,6 +76,8 @@ function StudentDrawerForm({showDrawer, setShowDrawer, fetchStudents}) {
                         <Input placeholder="Please enter student name"/>
                     </Form.Item>
                 </Col>
+            </Row>
+            <Row gutter={16}>
                 <Col span={12}>
                     <Form.Item
                         name="email"

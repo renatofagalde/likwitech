@@ -63,6 +63,7 @@ const columns = fetchStudents => [
         title: '',
         dataIndex: 'avatar',
         key: 'avatar',
+        responsive: ["xs"],
         render: (text, student) =>
             <TheAvatar name={student.name}/>
     },
@@ -70,21 +71,24 @@ const columns = fetchStudents => [
         title: 'Id',
         dataIndex: 'id',
         key: 'id',
+        responsive: ["sm"]
     },
     {
         title: 'Name',
         dataIndex: 'name',
-        key: 'name',
+        key: 'name'
     },
     {
         title: 'Email',
         dataIndex: 'email',
         key: 'email',
+        responsive: ["sm"]
     },
     {
         title: 'Gender',
         dataIndex: 'gender',
         key: 'gender',
+        responsive: ["sm"]
     },
     {
         title: 'Actions',
@@ -100,7 +104,8 @@ const columns = fetchStudents => [
                     <Radio.Button value="small">Delete</Radio.Button>
                 </Popconfirm>
                 <Radio.Button value="small">Edit</Radio.Button>
-            </Radio.Group>
+            </Radio.Group>,
+
     }
 ];
 
