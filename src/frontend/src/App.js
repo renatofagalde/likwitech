@@ -184,7 +184,7 @@ function App() {
     }
 
     return <Layout style={{minHeight: '100vh'}}>
-        {/*
+        {
         <Sider collapsible collapsed={collapsed}
                onCollapse={setCollapsed}>
             <div className="logo"/>
@@ -209,7 +209,7 @@ function App() {
                 </Menu.Item>
             </Menu>
         </Sider>
-*/}
+}
         <Layout className="site-layout">
             <Header className="site-layout-background" style={{padding: 0}}/>
             <Content style={{margin: '0 16px'}}>
