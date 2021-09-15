@@ -17,7 +17,14 @@ import {
     Tag
 } from 'antd';
 
-import {LoadingOutlined, PlusOutlined, UserOutlined} from '@ant-design/icons';
+import {
+    DesktopOutlined, FileOutlined,
+    LoadingOutlined,
+    PieChartOutlined,
+    PlusOutlined,
+    TeamOutlined,
+    UserOutlined
+} from '@ant-design/icons';
 
 
 import './App.css';
