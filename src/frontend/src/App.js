@@ -9,7 +9,6 @@ import {
     Empty,
     Image,
     Layout,
-    Menu,
     Popconfirm,
     Radio,
     Spin,
@@ -25,8 +24,8 @@ import {errorNotification, successNotification} from "./Notification";
 import StudentDrawerForm from "./StudenDrawerForm";
 
 
-const {Header, Content, Footer, Sider} = Layout;
-const {SubMenu} = Menu;
+const {Header, Content, Footer} = Layout;
+
 
 const TheAvatar = ({name}) => {
     let trim = name.trim();
@@ -109,7 +108,6 @@ const antIcon = <LoadingOutlined style={{fontSize: 24}} spin/>;
 
 function App() {
     const [students, setStudents] = useState([]);
-    const [collapsed, setCollapsed] = useState(false);
     const [fetching, setFetching] = useState(true);
     const [showDrawer, setShowDrawer] = useState(false);
 
