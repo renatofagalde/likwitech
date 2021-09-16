@@ -200,12 +200,15 @@ function App() {
                 </div>
             </Content>
             <Footer style={{textAlign: 'center'}}>
-                <Image
-                    width={75}
-                    src="https://likwi.com.br/assets/images/likwi-white-footer-1.png"
-                />
+
                 <Divider>
-                    <a href="https://likwi.com.br">By Likwi 😎🐶</a>
+                    <a href="https://likwi.com.br">
+                        <Image
+                            width={75}
+                            src="/logo512.png"
+                        />
+
+                    </a>
 
                 </Divider>
             </Footer>
