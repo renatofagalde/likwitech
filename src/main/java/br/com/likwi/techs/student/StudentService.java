@@ -17,15 +17,18 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
     public List<Student> getAllStudents() {
         return this.studentRepository.findAll();
     }
 
     public Student add(Student student) {
-
         this.studentRepository.findByEmail(student.getEmail())
                 .ifPresent(exists -> {
-                    throw new BadRequestException("Email taken");
+                    throw new BadRequestException("Email " + student.getEmail() + " taken");
                 });
         this.studentRepository.save(student);
         return student;
