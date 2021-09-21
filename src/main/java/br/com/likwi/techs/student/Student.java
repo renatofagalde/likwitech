@@ -22,6 +22,7 @@ public class Student {
     @GeneratedValue(
             generator = "student_sequence",
             strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     @NotBlank
@@ -29,7 +30,7 @@ public class Student {
     private String name;
 
     @Email
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @NotNull
