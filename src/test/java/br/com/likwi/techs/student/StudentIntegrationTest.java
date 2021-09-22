@@ -1,8 +1,5 @@
-package br.com.likwi.techs.integration;
+package br.com.likwi.techs.student;
 
-import br.com.likwi.techs.student.Gender;
-import br.com.likwi.techs.student.Student;
-import br.com.likwi.techs.student.StudentRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
@@ -19,17 +16,19 @@ import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @SpringBootTest
 @TestPropertySource(
         locations = "classpath:application-it.properties"
 )
 @AutoConfigureMockMvc
-public class StudentIT {
+public class StudentIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -44,8 +43,15 @@ public class StudentIT {
 
     private final String URI = "/api/v001/students";
 
+    final static Logger logger = Logger.getLogger(StudentIntegrationTest.class.toString());
+
     @Test
     void canRegisterNewStudent() throws Exception {
+
+
+        logger.info(String.format("\t*********************** StudentIT \"canRegisterNewStudent\" *********************** \t"));
+
+
         //given
         final String name = String.format("%s %s",
                 faker.name().firstName(),
@@ -68,11 +74,12 @@ public class StudentIT {
         assertThat(students)
                 .usingElementComparatorIgnoringFields("id")
                 .contains(student);
-
     }
 
     @Test
     void canDeleteStudent() throws Exception {
+        logger.info(String.format("\t*********************** StudentIT \"canDeleteStudent\" *********************** \t"));
+
         // given
         String name = String.format(
                 "%s %s",
