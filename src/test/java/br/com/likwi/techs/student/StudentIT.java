@@ -28,7 +28,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         locations = "classpath:application-it.properties"
 )
 @AutoConfigureMockMvc
-public class StudentIntegrationTest {
+//Para cada método subir o spring 👇🏻
+//@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+public class StudentIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -43,7 +45,7 @@ public class StudentIntegrationTest {
 
     private final String URI = "/api/v001/students";
 
-    final static Logger logger = Logger.getLogger(StudentIntegrationTest.class.toString());
+    final static Logger logger = Logger.getLogger(StudentIT.class.toString());
 
     @Test
     void canRegisterNewStudent() throws Exception {

@@ -17,11 +17,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "student")
 public class Student {
+
     @Id
-    @SequenceGenerator(name = "student_sequence", sequenceName = "student_count", allocationSize = 1)
-    @GeneratedValue(
-            generator = "student_sequence",
-            strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 

@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:8.0.26
+    container_name: likwi-techs-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "base"
+    ports:
+      - "3301:3306"
+    volumes:
+      - /Users/renatofagalde/Documents/programacao/desenvolvimento/workspace_docker_data/likwi-techs-db-mysql:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+
+  adminer:
+    image: adminer
+    container_name: likwi-demonstracao-tecnologias_adminer
+    ports:
+      - 8090:8080
+    networks:
+      - mysql-compose-network
+
+networks:
+  mysql-compose-network:
+    driver: bridge
