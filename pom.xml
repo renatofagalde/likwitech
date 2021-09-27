@@ -149,7 +149,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>jib-push-to-dockerhub</id>
