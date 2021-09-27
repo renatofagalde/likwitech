@@ -147,6 +147,16 @@
                     </container>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>7.7.3</version>
+                <configuration>
+                    <url>jdbc:mysql://localhost:3301/base</url>
+                    <user>root</user>
+                    <password>password</password>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <profiles>

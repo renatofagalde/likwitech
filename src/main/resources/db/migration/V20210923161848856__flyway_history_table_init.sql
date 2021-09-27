@@ -1,3 +1,6 @@
+
+drop table if exists flyway_schema_history;
+
 create table flyway_schema_history
 (
 	installed_rank int not null
