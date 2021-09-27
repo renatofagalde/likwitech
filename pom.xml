@@ -46,13 +46,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-        <!--
-                <dependency>
-                    <groupId>org.postgresql</groupId>
-                    <artifactId>postgresql</artifactId>
-                    <scope>runtime</scope>
-                </dependency>
-        -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
@@ -78,40 +71,6 @@
     </dependencies>
     <build>
         <plugins>
-            <!--
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-failsafe-plugin</artifactId>
-                            <configuration>
-                                <skipTests>false</skipTests>
-                                <includes>
-                                    <include>**/*StudentIT.java</include>
-                                </includes>
-                            </configuration>
-                            <executions>
-                                <execution>
-                                    <goals>
-                                        <goal>integration-test</goal>
-                                        <goal>verify</goal>
-                                    </goals>
-                                </execution>
-                            </executions>
-                        </plugin>
-            -->
-            <!--
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-failsafe-plugin</artifactId>
-                            <executions>
-                                <execution>
-                                    <goals>
-                                        <goal>integration-test</goal>
-                                        <goal>verify</goal>
-                                    </goals>
-                                </execution>
-                            </executions>
-                        </plugin>
-            -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
