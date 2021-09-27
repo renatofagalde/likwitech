@@ -7,39 +7,35 @@ on:
   workflow_dispatch:
 
 env:
-  # MySQL
-  image: mysql:8.0.26
-  MYSQL_DATABASE: base
-  MYSQL_USER: root
-  MYSQL_PASSWORD: root
+  # Postgres
+  POSTGRESQL_VERSION: 13.1
+  POSTGRESQL_DB: base
+  POSTGRESQL_USER: postgres
+  POSTGRESQL_PASSWORD: password
   # Java
   JAVA_VERSION: 1.16
   # DockerHub
   DOCKER_HUB_USERNAME: renatofagalde
   # AWS & Elastic Bean Stalk
   AWS_REGION: us-east-2
-  EB_ENVIRONMENT_NAME: Likwi-Environment
-  EB_APPLICATION_NAME: Likwi-backend
+  EB_ENVIRONMENT_NAME: Likwi-env
+  EB_APPLICATION_NAME: likwi
   EB_DEPLOYMENT_PACKAGE: ./src/elasticbeanstalk/docker-compose.yml
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-#    services:
-#      postgres:
-#        image: postgres:13.1
-#        env:
-#          POSTGRES_DB: ${{ env.POSTGRESQL_DB }}
-#          POSTGRES_USER: ${{ env.POSTGRESQL_USER }}
-#          POSTGRES_PASSWORD: ${{ env.POSTGRESQL_PASSWORD }}
-#        ports:
-#          - 5432:5432
-#        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    services:
+      postgres:
+        image: postgres:13.1
+        env:
+          POSTGRES_DB: ${{ env.POSTGRESQL_DB }}
+          POSTGRES_USER: ${{ env.POSTGRESQL_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRESQL_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - name: Set up MySQL
-        run: |
-          sudo systemctl start mysql.service
-          mysql -e 'CREATE DATABASE ${{ env.MYSQL_DATABASE }};' -u${{ env.MYSQL_USER }} -p${{ env.MYSQL_PASSWORD }}
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
