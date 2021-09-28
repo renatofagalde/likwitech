@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   backend:
-    image: "renatofagalde/likwi-techs:27.9.2021.19.59.9"
+    image: "renatofagalde/likwi-techs:28.9.2021.11.44.11"
     ports:
       - "80:8080"
     restart: "always"
