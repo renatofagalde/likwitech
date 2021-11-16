@@ -36,10 +36,7 @@ class StudentRepositoryTest {
 
         //then
         assertThat(expected.isPresent()).isTrue();
-
     }
-
-
 
     @Test
     void itShouldCheckWhenStudentInFindByEmailDoesNotExists() {

@@ -16,6 +16,7 @@
     <properties>
         <java.version>16</java.version>
         <app.image.name>likwi-techs</app.image.name>
+        <springfox.version>2.9.2</springfox.version>
         <app.image.tag/>
     </properties>
     <dependencies>
@@ -37,6 +38,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -68,6 +70,29 @@
             <artifactId>flyway-core</artifactId>
             <version>7.15.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mercadopago</groupId>
+            <artifactId>sdk-java</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
