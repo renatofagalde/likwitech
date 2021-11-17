@@ -11,7 +11,6 @@ env:
   image: mysql:8.0.26
   MYSQL_DATABASE: base
   MYSQL_USER: root
-  MYSQL_PASSWORD: root
 #  MYSQL_ROOT_PASSWORD: rootpassword
 
 #  POSTGRESQL_VERSION: 13.1
@@ -27,10 +26,10 @@ jobs:
       mysql:
         image: mysql:latest
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: base
+          MYSQL_ROOT_PASSWORD: ${{secrets.LIKWI_MYSQL_ROOT_PASSWORD}}
+          MYSQL_DATABASE: ${{secrets.LIKWI_MYSQL_DATABASE}}
         ports:
-          - 3301:3306
+          - ${{secrets.LIKWI_MYSQL_PORT}}:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 #      postgres:
 #        image: mysql:8.0.26
@@ -44,10 +43,6 @@ jobs:
     steps:
 #      - name: Set up MySQL
 #        run: |
-#          #sed -i "s|3306|3301|g" /etc/my.cnf
-#          echo "****procurando my.cnf"
-#          #find / -name my.cnf
-#          echo "****procurando my.cnf finalizado"
 #          sudo systemctl start mysql.service
 #          mysql -e 'CREATE DATABASE ${{ env.MYSQL_DATABASE }};' -u${{ env.MYSQL_USER }} -p${{ env.MYSQL_PASSWORD }}
       - uses: actions/checkout@v2
