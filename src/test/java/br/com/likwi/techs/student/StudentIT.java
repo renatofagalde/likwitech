@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 //Para cada método subir o spring 👇🏻
 //@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-public class StudentIT {
+class StudentIT {
 
     @Autowired
     private MockMvc mockMvc;
