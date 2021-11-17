@@ -35,6 +35,7 @@ jobs:
     steps:
       - name: Set up MySQL
         run: |
+          sudo mysqld --port=3301
           sudo systemctl start mysql.service
           mysql -e 'CREATE DATABASE ${{ env.MYSQL_DATABASE }};' -u${{ env.MYSQL_USER }} -p${{ env.MYSQL_PASSWORD }}
       - uses: actions/checkout@v2
