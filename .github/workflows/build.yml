@@ -25,7 +25,6 @@ jobs:
     services:
       mysql:
         image: mysql:latest
-          - name: Installing MySQL as Service
         env:
           MYSQL_ROOT_PASSWORD: ${{secrets.LIKWI_MYSQL_ROOT_PASSWORD}}
           MYSQL_DATABASE: ${{secrets.LIKWI_MYSQL_DATABASE}}
