@@ -95,6 +95,15 @@
 
     </dependencies>
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.4.0.905</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -138,7 +147,7 @@
                 <configuration>
                     <url>jdbc:mysql://localhost:3301/base</url>
                     <user>root</user>
-                    <password>password</password>
+                    <password>root</password>
                 </configuration>
             </plugin>
         </plugins>

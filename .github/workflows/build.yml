@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
 
 env:
+#  TODO troar para o ${{ secrets.xpto }}
   image: mysql:8.0.26
   MYSQL_DATABASE: base
   MYSQL_USER: root
-  MYSQL_PASSWORD: root
 #  MYSQL_ROOT_PASSWORD: rootpassword
 
 #  POSTGRESQL_VERSION: 13.1
@@ -22,7 +22,15 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-#    services:
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: ${{secrets.LIKWI_MYSQL_ROOT_PASSWORD}}
+          MYSQL_DATABASE: ${{secrets.LIKWI_MYSQL_DATABASE}}
+        ports:
+          - 3301:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 #      postgres:
 #        image: mysql:8.0.26
 #        env:
@@ -33,10 +41,10 @@ jobs:
 #          - 5432:5432
 #        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - name: Set up MySQL
-        run: |
-          sudo systemctl start mysql.service
-          mysql -e 'CREATE DATABASE ${{ env.MYSQL_DATABASE }};' -u${{ env.MYSQL_USER }} -p${{ env.MYSQL_PASSWORD }}
+#      - name: Set up MySQL
+#        run: |
+#          sudo systemctl start mysql.service
+#          mysql -e 'CREATE DATABASE ${{ env.MYSQL_DATABASE }};' -u${{ env.MYSQL_USER }} -p${{ env.MYSQL_PASSWORD }}
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1.4.3
         with:
