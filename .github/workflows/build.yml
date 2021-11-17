@@ -35,7 +35,10 @@ jobs:
     steps:
       - name: Set up MySQL
         run: |
-          sed -i "s|3306|3301|g" /etc/my.cnf
+          #sed -i "s|3306|3301|g" /etc/my.cnf
+          echo "****procurando my.cnf"
+          find / -name my.cnf
+          echo "****procurando my.cnf finalizado"
           sudo systemctl start mysql.service
           mysql -e 'CREATE DATABASE ${{ env.MYSQL_DATABASE }};' -u${{ env.MYSQL_USER }} -p${{ env.MYSQL_PASSWORD }}
       - uses: actions/checkout@v2
