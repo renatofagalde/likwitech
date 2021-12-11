@@ -43,10 +43,16 @@ para sair:
 
 ********* MYSQL ********
 docker run --name likwi-techs-mysql -p 3301:3306 \
+
     -e MYSQL_DATABASE=base \
     -e MYSQL_PASSWORD=root \
     -e MYSQL_ROOT_PASSWORD=root \
     -d mysql:8.0.27 \
+
+
+    -e MYSQL_DATABASE=base -e MYSQL_USER=likwi \
+    -e MYSQL_ROOT_PASSWORD=root \
+    -d mysql:8.0.26
 
 
 docker run -p 8016:3306 --name gestao \
